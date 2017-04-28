@@ -120,6 +120,7 @@ typedef struct {
 @synthesize carrierName;
 @synthesize bluetoothConnected;
 @synthesize bluetoothEnabled;
+@synthesize locationEnabled;
 @synthesize batteryDetailEnabled;
 
 - (void)enableOverrides
@@ -159,6 +160,10 @@ typedef struct {
     overrides->overrideBluetoothConnected = self.bluetoothConnected;
     overrides->values.bluetoothConnected = self.bluetoothConnected;
   }
+  
+  // Location
+  overrides->booloverrideItemIsEnabled[17] = !!self.locationEnabled;
+  overrides->values.boolitemIsEnabled[17] = !!self.locationEnabled;
   
   // Actually update the status bar
   [UIStatusBarServer postStatusBarOverrideData:overrides];

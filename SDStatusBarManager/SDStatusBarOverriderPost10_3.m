@@ -26,8 +26,8 @@ typedef NS_ENUM(int, StatusBarItem10_0) {
   // 13
   Alarms = 14,
   // 15
-  // 16
-  // 17
+  // 16 Do not use - Simulator stops working
+  Location = 17,
   RotationLock = 18,
   // 19
   // 20
@@ -150,6 +150,7 @@ typedef struct {
 @synthesize carrierName;
 @synthesize bluetoothConnected;
 @synthesize bluetoothEnabled;
+@synthesize locationEnabled;
 @synthesize batteryDetailEnabled;
 
 - (void)enableOverrides {
@@ -194,6 +195,10 @@ typedef struct {
     overrides->overrideBluetoothConnected = self.bluetoothConnected;
     overrides->values.bluetoothConnected = self.bluetoothConnected;
   }
+  
+  // Location
+  overrides->overrideItemIsEnabled[Location] = !!self.locationEnabled;
+  overrides->values.itemIsEnabled[Location] = !!self.locationEnabled;
   
   // Actually update the status bar
   [UIStatusBarServer postStatusBarOverrideData:overrides];
