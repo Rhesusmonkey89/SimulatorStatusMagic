@@ -41,7 +41,7 @@ typedef NS_ENUM(int, StatusBarItem10_0) {
   // 13
   Alarms = 14,
   // 15
-  // 16 Do not use - Simulator stops working
+  // 16
   Location = 17,
   RotationLock = 18,
   // 19
